@@ -90,25 +90,23 @@ export const ResultsGrid: React.FC<ResultsGridProps> = ({ todayResults, yesterda
     return (
       <div
         key={game.game_id}
-        className={`grid grid-cols-12 items-center p-4 border-b border-gray-200 dark:border-zinc-900 transition-colors border-l-4 ${
-          isStarred 
-            ? 'border-l-amber-500 bg-amber-50/30 dark:bg-amber-950/10' 
-            : game.is_featured 
-              ? 'border-l-[#fbbf24] bg-[#fbbf24]/10 dark:bg-yellow-950/20' 
-              : 'border-l-transparent bg-white dark:bg-zinc-950'
-        } text-gray-900 dark:text-zinc-100`}
+        className={`grid grid-cols-12 items-center p-4 border-b border-gray-200 dark:border-zinc-900 transition-colors ${
+          game.is_featured 
+            ? 'bg-[#fbbf24] dark:bg-yellow-950/20 text-gray-900 dark:text-zinc-100' 
+            : 'bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100'
+        }`}
       >
         {/* Left Column: Game Information */}
         <div className="col-span-6 sm:col-span-8 min-w-0">
           <div className="flex items-center gap-2">
             <button
               onClick={() => toggleFavorite(game.game_id)}
-              className="text-gray-400 hover:text-amber-500 dark:hover:text-amber-400 transition-all hover:scale-125 flex-shrink-0"
+              className="text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors flex-shrink-0"
               title="Toggle Favorite"
             >
               <Star
                 size={14}
-                className={isStarred ? "fill-amber-500 text-amber-500" : ""}
+                className={isStarred ? "fill-yellow-500 text-yellow-500" : ""}
               />
             </button>
             <span className="font-extrabold text-sm sm:text-base tracking-wider uppercase truncate">
@@ -119,7 +117,7 @@ export const ResultsGrid: React.FC<ResultsGridProps> = ({ todayResults, yesterda
             at {game.schedule_time} |{' '}
             <Link
               to={`/charts?game=${game.game_id}`}
-              className="text-indigo-600 dark:text-indigo-400 hover:underline font-extrabold"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               {t('record_chart_link')}
             </Link>
@@ -127,15 +125,13 @@ export const ResultsGrid: React.FC<ResultsGridProps> = ({ todayResults, yesterda
         </div>
 
         {/* Yesterday Column */}
-        <div className={`col-span-3 sm:col-span-2 text-center text-2xl sm:text-4xl font-extrabold font-mono tracking-tighter select-all ${
-          yesterdayPending ? 'text-gray-400 dark:text-zinc-600 opacity-40' : 'text-blue-600 dark:text-blue-400'
-        }`}>
+        <div className="col-span-3 sm:col-span-2 text-center text-2xl sm:text-4xl font-extrabold font-mono tracking-tighter select-all">
           {yesterdayNum}
         </div>
         
         {/* Today Column */}
         <div className={`col-span-3 sm:col-span-2 text-center text-2xl sm:text-4xl font-black font-mono tracking-tighter select-all ${
-          todayPending ? 'text-gray-400 dark:text-zinc-600 opacity-40' : 'text-red-600 dark:text-red-500'
+          todayPending ? 'opacity-40' : 'text-red-600 dark:text-red-500'
         }`}>
           {todayNum}
         </div>
@@ -148,10 +144,9 @@ export const ResultsGrid: React.FC<ResultsGridProps> = ({ todayResults, yesterda
       {/* 1. LIVE SECTION */}
       {liveGames.length > 0 && (
         <div>
-          <div className="bg-gray-50 dark:bg-zinc-900/50 px-4 py-2.5 border-b border-gray-200 dark:border-zinc-900 flex items-center">
-            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-black text-red-600 tracking-widest uppercase">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
-              LIVE RESULTS
+          <div className="bg-gray-50 dark:bg-zinc-900/50 px-4 py-2 border-b border-gray-200 dark:border-zinc-900 flex items-center">
+            <div className="border-l-4 border-red-600 pl-2 text-[10px] sm:text-xs font-black text-red-600 tracking-widest uppercase">
+              LIVE
             </div>
           </div>
           <div className="divide-y divide-gray-200 dark:divide-zinc-900">
@@ -163,10 +158,9 @@ export const ResultsGrid: React.FC<ResultsGridProps> = ({ todayResults, yesterda
       {/* 2. NEXT SECTION */}
       {nextGames.length > 0 && (
         <div>
-          <div className="bg-gray-50 dark:bg-zinc-900/50 px-4 py-2.5 border-b border-gray-200 dark:border-zinc-900 border-t border-black dark:border-white flex items-center">
-            <div className="flex items-center gap-2 text-[10px] sm:text-xs font-black text-indigo-600 dark:text-indigo-400 tracking-widest uppercase">
-              <span className="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
-              UPCOMING DRAWS
+          <div className="bg-gray-50 dark:bg-zinc-900/50 px-4 py-2 border-b border-gray-200 dark:border-zinc-900 border-t border-black dark:border-white flex items-center">
+            <div className="border-l-4 border-red-600 pl-2 text-[10px] sm:text-xs font-black text-red-600 tracking-widest uppercase">
+              NEXT
             </div>
           </div>
           <div className="divide-y divide-gray-200 dark:divide-zinc-900">

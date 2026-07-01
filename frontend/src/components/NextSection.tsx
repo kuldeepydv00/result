@@ -26,8 +26,8 @@ export const NextSection: React.FC<NextSectionProps> = ({ results }) => {
   if (pendingResults.length === 0) return null;
 
   return (
-    <div className="border border-zinc-200 dark:border-zinc-800 p-4 rounded-2xl shadow-md bg-zinc-50/30 dark:bg-zinc-900/10 mb-6">
-      <h3 className="text-xs font-black tracking-widest text-indigo-600 dark:text-indigo-400 mb-3 flex items-center gap-1.5">
+    <div className="border border-black dark:border-white p-4 mb-6">
+      <h3 className="text-xs font-black tracking-widest text-green-600 dark:text-green-500 mb-3 flex items-center gap-1.5">
         <BellRing size={14} className="animate-pulse" />
         {t('next_announce').toUpperCase()}
       </h3>
@@ -35,7 +35,7 @@ export const NextSection: React.FC<NextSectionProps> = ({ results }) => {
         {pendingResults.map((game) => (
           <div
             key={game.game_id}
-            className="border border-zinc-200/60 dark:border-zinc-800/60 p-3 flex justify-between items-center bg-white dark:bg-zinc-950 rounded-xl hover:border-indigo-500 transition-all shadow-sm"
+            className="border border-gray-200 dark:border-zinc-800 p-3 flex justify-between items-center bg-gray-50 dark:bg-zinc-900"
           >
             <div>
               <div className="font-black text-xs tracking-wider text-gray-800 dark:text-zinc-200">
@@ -45,7 +45,7 @@ export const NextSection: React.FC<NextSectionProps> = ({ results }) => {
                 {game.schedule_time}
               </div>
             </div>
-            <span className="bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 text-[9px] font-black px-2 py-0.5 rounded-md">
+            <span className="bg-green-600 text-white text-[9px] font-black px-2 py-0.5">
               UPCOMING
             </span>
           </div>

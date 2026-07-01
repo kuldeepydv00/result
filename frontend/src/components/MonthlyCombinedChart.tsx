@@ -132,15 +132,15 @@ export const MonthlyCombinedChart: React.FC = () => {
   return (
     <div className="mt-12 mb-8">
       {/* Chart Grid Container */}
-      <div className="border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-2xl overflow-hidden bg-white dark:bg-zinc-950">
+      <div className="border border-black dark:border-white overflow-hidden bg-white dark:bg-zinc-950">
         
         {/* Sleek Dark Alert Bar */}
-        <div className="bg-gradient-to-r from-zinc-800 to-zinc-950 dark:from-zinc-900 dark:to-zinc-950 text-white text-center py-2.5 px-4 text-[10px] sm:text-xs font-bold uppercase tracking-widest shadow-sm">
+        <div className="bg-gray-800 dark:bg-zinc-800 text-white text-center py-2 px-4 text-[10px] sm:text-xs font-bold uppercase tracking-wider">
           New Show Disawar as the last column of the past day
         </div>
 
         {/* Main Sleek Black Chart Header */}
-        <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700 text-white text-center py-3.5 px-4 text-xs sm:text-sm font-black uppercase tracking-wider border-t border-zinc-200 dark:border-zinc-800 shadow-sm">
+        <div className="bg-black dark:bg-white text-white dark:text-black text-center py-3 px-4 text-xs sm:text-sm font-black uppercase tracking-wider border-t border-black dark:border-white">
           Combined Record Chart: {currentMonthName.toUpperCase()} ({gamesAbbrList})
         </div>
 
@@ -154,7 +154,7 @@ export const MonthlyCombinedChart: React.FC = () => {
             <table className="w-full border-collapse text-center text-xs font-black min-w-[600px]">
               <thead>
                 {/* Sleek Slate Column Headers */}
-                <tr className="bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-zinc-100 border-b border-zinc-200 dark:border-zinc-800 text-[10px] sm:text-xs">
+                <tr className="bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-zinc-100 border-b border-black dark:border-white text-[10px] sm:text-xs">
                   <th className="p-1.5 sm:p-2.5 border-r border-gray-300 dark:border-zinc-800 text-red-600 font-black w-12 sm:w-20">DATE</th>
                   {charts.map(c => (
                     <th key={c.gameId} className="p-1.5 sm:p-2.5 border-r border-gray-300 dark:border-zinc-800 last:border-r-0">
