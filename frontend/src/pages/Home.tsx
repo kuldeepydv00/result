@@ -246,15 +246,15 @@ export const Home: React.FC = () => {
       <NextSection results={results} />
 
       {/* Main Results Table Block */}
-      <div className="border border-black dark:border-white overflow-hidden bg-white dark:bg-zinc-950 mb-8">
+      <div className="border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-2xl overflow-hidden bg-white dark:bg-zinc-950 mb-8">
         
-        {/* Table Banner (Premium Black Accent) */}
-        <div className="bg-black dark:bg-white text-white dark:text-black text-center py-3.5 px-4 text-xs sm:text-sm font-black uppercase tracking-wider">
+        {/* Table Banner (Premium Indigo/Violet Gradient) */}
+        <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700 text-white text-center py-4 px-4 text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
           Result King: {formatBannerDateLabel(selectedDate)} & {formatBannerDateLabel(getYesterdayDateStr())}
         </div>
-
+ 
         {/* Date Selector Row */}
-        <div className="bg-gray-50 dark:bg-zinc-900/50 p-4 border-b border-black dark:border-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-gray-50 dark:bg-zinc-900/50 p-4 border-b border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Calendar size={14} className="text-gray-600 dark:text-zinc-400" />
             <span className="text-[10px] font-bold text-gray-600 dark:text-zinc-400 uppercase tracking-widest">
@@ -267,18 +267,18 @@ export const Home: React.FC = () => {
               value={selectedDate}
               onChange={handleDateChange}
               max={getTodayStr()}
-              className="w-full max-w-[280px] sm:w-auto p-2 text-xs font-black border border-black dark:border-white bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 focus:outline-none uppercase text-center"
+              className="w-full max-w-[280px] sm:w-auto p-2 text-xs font-black border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 rounded-md uppercase text-center"
             />
           </div>
         </div>
 
         {/* Sub-Header (Grid Layout for Perfect Column Alignment) */}
-        <div className="bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-zinc-100 py-2.5 px-4 grid grid-cols-12 items-center text-[10px] sm:text-xs font-black uppercase tracking-wider border-b border-black dark:border-white">
+        <div className="bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-zinc-100 py-2.5 px-4 grid grid-cols-12 items-center text-[10px] sm:text-xs font-black uppercase tracking-wider border-b border-zinc-200 dark:border-zinc-800">
           <span className="col-span-6 sm:col-span-8">Draw Markets Comparison</span>
           <span className="col-span-3 sm:col-span-2 text-center">{formatDayHeaderLabel(getYesterdayDateStr())}</span>
           <span className="col-span-3 sm:col-span-2 text-center">{formatDayHeaderLabel(selectedDate)}</span>
         </div>
-
+ 
         {/* Results Grid Listing partitioned into LIVE/NEXT */}
         <ResultsGrid todayResults={results} yesterdayResults={yesterdayResults} />
       </div>
