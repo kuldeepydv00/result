@@ -253,13 +253,6 @@ export const Home: React.FC = () => {
           Result King: {formatBannerDateLabel(selectedDate)} & {formatBannerDateLabel(getYesterdayDateStr())}
         </div>
 
-        {/* Sub-Header (Grid Layout for Perfect Column Alignment) */}
-        <div className="bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-zinc-100 py-2.5 px-4 grid grid-cols-12 items-center text-[10px] sm:text-xs font-black uppercase tracking-wider border-b border-black dark:border-white">
-          <span className="col-span-6 sm:col-span-8">Draw Markets Comparison</span>
-          <span className="col-span-3 sm:col-span-2 text-center">{formatDayHeaderLabel(getYesterdayDateStr())}</span>
-          <span className="col-span-3 sm:col-span-2 text-center">{formatDayHeaderLabel(selectedDate)}</span>
-        </div>
-
         {/* Date Selector Row */}
         <div className="bg-gray-50 dark:bg-zinc-900/50 p-4 border-b border-black dark:border-white flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
@@ -268,15 +261,22 @@ export const Home: React.FC = () => {
               {t('select_date')}
             </span>
           </div>
-          <div className="relative w-full sm:w-auto">
+          <div className="relative w-full sm:w-auto flex justify-center">
             <input
               type="date"
               value={selectedDate}
               onChange={handleDateChange}
               max={getTodayStr()}
-              className="w-full sm:w-auto p-2 text-xs font-black border border-black dark:border-white bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 focus:outline-none uppercase"
+              className="w-full max-w-[280px] sm:w-auto p-2 text-xs font-black border border-black dark:border-white bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 focus:outline-none uppercase text-center"
             />
           </div>
+        </div>
+
+        {/* Sub-Header (Grid Layout for Perfect Column Alignment) */}
+        <div className="bg-gray-100 dark:bg-zinc-900 text-gray-900 dark:text-zinc-100 py-2.5 px-4 grid grid-cols-12 items-center text-[10px] sm:text-xs font-black uppercase tracking-wider border-b border-black dark:border-white">
+          <span className="col-span-6 sm:col-span-8">Draw Markets Comparison</span>
+          <span className="col-span-3 sm:col-span-2 text-center">{formatDayHeaderLabel(getYesterdayDateStr())}</span>
+          <span className="col-span-3 sm:col-span-2 text-center">{formatDayHeaderLabel(selectedDate)}</span>
         </div>
 
         {/* Results Grid Listing partitioned into LIVE/NEXT */}
