@@ -127,13 +127,15 @@ export const ResultsGrid: React.FC<ResultsGridProps> = ({ todayResults, yesterda
         </div>
 
         {/* Yesterday Column */}
-        <div className="col-span-3 sm:col-span-2 text-center text-2xl sm:text-4xl font-extrabold font-mono tracking-tighter select-all text-slate-700 dark:text-zinc-300">
+        <div className={`col-span-3 sm:col-span-2 text-center text-2xl sm:text-4xl font-extrabold font-mono tracking-tighter select-all ${
+          yesterdayPending ? 'text-gray-400 dark:text-zinc-600 opacity-40' : 'text-blue-600 dark:text-blue-400'
+        }`}>
           {yesterdayNum}
         </div>
         
         {/* Today Column */}
         <div className={`col-span-3 sm:col-span-2 text-center text-2xl sm:text-4xl font-black font-mono tracking-tighter select-all ${
-          todayPending ? 'text-gray-400 dark:text-zinc-600 opacity-40' : 'text-emerald-600 dark:text-emerald-400'
+          todayPending ? 'text-gray-400 dark:text-zinc-600 opacity-40' : 'text-red-600 dark:text-red-500'
         }`}>
           {todayNum}
         </div>

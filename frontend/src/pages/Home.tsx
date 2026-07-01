@@ -248,8 +248,8 @@ export const Home: React.FC = () => {
       {/* Main Results Table Block */}
       <div className="border border-zinc-200 dark:border-zinc-800 shadow-xl rounded-2xl overflow-hidden bg-white dark:bg-zinc-950 mb-8">
         
-        {/* Table Banner (Premium Indigo/Violet Gradient) */}
-        <div className="bg-gradient-to-r from-indigo-600 via-violet-600 to-indigo-700 text-white text-center py-4 px-4 text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
+        {/* Table Banner (Premium Crimson Red Gradient) */}
+        <div className="bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white text-center py-4 px-4 text-xs sm:text-sm font-black uppercase tracking-widest shadow-sm">
           Result King: {formatBannerDateLabel(selectedDate)} & {formatBannerDateLabel(getYesterdayDateStr())}
         </div>
  
@@ -267,7 +267,7 @@ export const Home: React.FC = () => {
               value={selectedDate}
               onChange={handleDateChange}
               max={getTodayStr()}
-              className="w-full max-w-[280px] sm:w-auto p-2 text-xs font-black border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 rounded-md uppercase text-center"
+              className="w-full max-w-[280px] sm:w-auto p-2 text-xs font-black border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 rounded-md uppercase text-center"
             />
           </div>
         </div>
