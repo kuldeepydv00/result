@@ -107,6 +107,8 @@ router.post('/auth/login', authLimiter, validateRequest(loginSchema), loginUser)
 router.post('/admin/login', authLimiter, validateRequest(loginSchema), loginAdmin);
 router.post('/admin/login-by-link', authLimiter, loginAdminByLink);
 
+import { fetchResultsFromApi } from '../services/apiFetcher';
+
 // ==========================================
 // 2. PUBLIC informational ENDPOINTS
 // ==========================================
@@ -117,6 +119,23 @@ router.get('/charts/:gameId/:year/:month', publicLimiter, getChartData);
 router.post('/search', publicLimiter, searchResults);
 router.get('/notifications/subscribe', publicLimiter, getVapidKey);
 router.post('/notifications/subscribe', publicLimiter, saveSubscription);
+router.get('/cron/run', async (req: Request, res: Response) => {
+  try {
+    const result = await fetchResultsFromApi(new Date());
+    return res.status(200).json({
+      success: true,
+      message: 'Cron triggered successfully',
+      data: result
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to run cron',
+      error: error.message
+    });
+  }
+});
+
 
 // ==========================================
 // 3. USER AUTHENTICATED ENDPOINTS
